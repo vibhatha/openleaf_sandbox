@@ -1,0 +1,47 @@
+# Node modules
+node_modules/
+
+# Build output
+dist/
+
+# Local environment files
+.env
+.env.local
+.env.*.local
+
+# Log files
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Editor directories and files
+.idea/
+.vscode/
+*.sublime-workspace
+
+# MacOS files
+.DS_Store
+
+# Temporary files
+*.tmp
+*.swp
+
+# Coverage directory used by testing tools
+coverage/
+
+# TypeScript build outputs
+*.tsbuildinfo
+
+# Ignore lock files
+package-lock.json
+yarn.lock
+
+# Ignore compiled files
+*.out
+*.log
+
+# Ignore specific files
+src/components/Info.css
+src/components/Info.tsx
+src/components/Home.tsx
+src/components/Home.css

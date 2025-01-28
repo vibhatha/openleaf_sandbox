@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState } from "react";
 import L from "leaflet";
 import "leaflet/dist/leaflet.css";
 import styles from './Map.module.css';
+import SidePanel from './SidePanel';
 
 const Map: React.FC = () => {
   const mapRef = useRef<HTMLDivElement>(null);
@@ -80,21 +81,33 @@ const Map: React.FC = () => {
         { path: "/provinces/LK-9.json", color: "brown" },
       ],
       districts: [
-        { path: "/districts/district-1.json", color: "blue" },
-        { path: "/districts/district-2.json", color: "orange" },
-      ],
-      ed: [
-        { path: "/ed/ed-1.json", color: "purple" },
-        { path: "/ed/ed-2.json", color: "yellow" },
-      ],
-      gnd: [
-        { path: "/gnd/gnd-1.json", color: "cyan" },
-        { path: "/gnd/gnd-2.json", color: "magenta" },
-      ],
-      lg: [
-        { path: "/lg/lg-1.json", color: "brown" },
-        { path: "/lg/lg-2.json", color: "black" },
-      ],
+        { "path": "/districts/LK-11.json", "color": "red" },
+        { "path": "/districts/LK-12.json", "color": "green" },
+        { "path": "/districts/LK-13.json", "color": "blue" },
+        { "path": "/districts/LK-21.json", "color": "orange" },
+        { "path": "/districts/LK-22.json", "color": "purple" },
+        { "path": "/districts/LK-23.json", "color": "yellow" },
+        { "path": "/districts/LK-31.json", "color": "cyan" },
+        { "path": "/districts/LK-32.json", "color": "magenta" },
+        { "path": "/districts/LK-33.json", "color": "brown" },
+        { "path": "/districts/LK-41.json", "color": "pink" },
+        { "path": "/districts/LK-42.json", "color": "gray" },
+        { "path": "/districts/LK-43.json", "color": "teal" },
+        { "path": "/districts/LK-44.json", "color": "lime" },
+        { "path": "/districts/LK-45.json", "color": "indigo" },
+        { "path": "/districts/LK-51.json", "color": "navy" },
+        { "path": "/districts/LK-52.json", "color": "olive" },
+        { "path": "/districts/LK-53.json", "color": "maroon" },
+        { "path": "/districts/LK-61.json", "color": "gold" },
+        { "path": "/districts/LK-62.json", "color": "silver" },
+        { "path": "/districts/LK-71.json", "color": "crimson" },
+        { "path": "/districts/LK-72.json", "color": "azure" },
+        { "path": "/districts/LK-81.json", "color": "lavender" },
+        { "path": "/districts/LK-82.json", "color": "coral" },
+        { "path": "/districts/LK-91.json", "color": "salmon" },
+        { "path": "/districts/LK-92.json", "color": "peach" }
+    ],
+      // Add more categories as needed
     };
 
     // Load the selected category's files
@@ -115,15 +128,15 @@ const Map: React.FC = () => {
   }, [selectedCategory]);
 
   return (
-    <div>
-      <select onChange={(e) => setSelectedCategory(e.target.value)} value={selectedCategory}>
-        <option value="provinces">Provinces</option>
-        <option value="districts">Districts</option>
-        <option value="ed">ED</option>
-        <option value="gnd">GND</option>
-        <option value="lg">LG</option>
-      </select>
-      <div ref={mapRef} style={{ height: "100vh", width: "100%", position: "relative" }}></div>
+    <div className={styles.mapContainer}>
+      <div 
+        ref={mapRef} 
+        className={styles.mapContent}
+      />
+      <SidePanel 
+        selectedCategory={selectedCategory}
+        onCategoryChange={setSelectedCategory}
+      />
     </div>
   );
 };
